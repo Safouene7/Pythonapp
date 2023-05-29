@@ -1,0 +1,15 @@
+services:
+  pythonapp:
+    build: ./python/
+    command: sh -c "sleep 100s ; python3 ./app-saf.py"
+    depends_on:
+      - mysql
+
+  mysql:
+    build: ./mysql/
+    restart: always
+    environment:
+      MYSQL_DATABASE: 'student'
+      MYSQL_ROOT_PASSWORD: 'safouene'
+    ports:
+      - '3306:3306'
