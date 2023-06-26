@@ -10,8 +10,8 @@ pipeline {
     
     stage('Build and run Docker image') {
       steps {
-        sh 'docker build -t api300 .'
-        sh 'docker run -d api300'
+        sh 'sudo docker build -t api300 .'
+        sh 'sudo docker run -d api300'
       }
     }
   }
