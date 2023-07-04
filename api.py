@@ -8,7 +8,7 @@ app = Flask(__name__)
 
 mysql_host = os.environ.get('MYSQL_HOST', 'mysql')
 mysql_password = os.environ.get('MYSQL_PASSWORD', 'password')
-mysql_user = os.environ.get('MYSQL_USER', 'root')
+mysql_user = os.environ.get('MYSQL_USER', 'safouene')
 
 
 def get_connection():
