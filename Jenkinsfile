@@ -20,7 +20,6 @@ pipeline {
             steps {
                 script{
                      withCredentials([usernamePassword(credentialsId: '4a2ef18d-42ef-454d-9531-dda2aff3c9af', usernameVariable: 'saf', passwordVariable: '1234')]) {
-                        sh 'docker login -u $dockerhubuser -p $dockerhubpwd'
 }
                    sh 'docker push safouene7/app:api300'
           }
