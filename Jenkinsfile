@@ -19,7 +19,7 @@ pipeline {
             steps {
                 script{
                    withCredentials([string(credentialsId: 'dockerhubpwd', variable: 'dockerhubpwd')]) {
-                   sh 'docker login -u safouene7 -p ${Sbng-2023}'
+                   sh 'docker login -u safouene7 -p ${dockerhubpwd}'
 }
                    sh 'docker push safouene7/app:api300'
           }
