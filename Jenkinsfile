@@ -22,7 +22,7 @@ pipeline {
                      withCredentials([usernamePassword(credentialsId: '4a2ef18d-42ef-454d-9531-dda2aff3c9af', usernameVariable: 'saf', passwordVariable: '1234')]) {
                          sh 'docker login -u safouene7 -p Sbng-2023'
 }
-                   sh 'docker push api300'
+                   sh 'docker push safouene7/app:api300'
           }
         }
      }
