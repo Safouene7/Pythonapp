@@ -1,14 +1,16 @@
 pipeline {
   agent any
-
-  environment {
-    DOCKER_HOST = 'unix:///var/run/docker.sock'
-  }
   
   stages {
     stage('Clone repository') {
       steps {
         git branch: 'master', url: 'https://github.com/Safouene7/Pythonapp.git'
+      }
+    }
+
+    stage('Run api') {
+      steps {
+        sh 'python3 api.py'
       }
     }
     
