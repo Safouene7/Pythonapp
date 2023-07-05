@@ -24,7 +24,7 @@ pipeline {
                         def dockerhubUsername = dockerhubCredentials.username
                         def dockerhubPassword = dockerhubCredentials.password
 
-                        sh 'docker login -u ${safouene7} -p {Sbng-2023}'
+                        sh 'docker login -u ${safouene7} -p ${Sbng-2023}'
                         sh 'docker push api300'
                     }
                 }
