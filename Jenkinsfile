@@ -1,5 +1,10 @@
 pipeline {
     agent any
+
+    environment {
+        DOCKERHUB_CREDENTIAL = credentials('dockerhubpwd')
+    }
+    
   
     stages {
         stage('Clone repository') {
@@ -18,8 +23,8 @@ pipeline {
         stage('Push Docker image') {
             steps {
                 script{
-                   withCredentials([string(credentialsId: 'dockerhubpwd', variable: 'dockerhubpwd')]) {
-                   sh 'docker login -u safouene7 -p ${dockerhubpwd}'
+                    withCredentials([string(credentialsId: DOCKERHUB_CREDENTIAL, variable: 'dockerhubpwd')]) {
+                        sh 'docker login -u safouene7 -p ${dockerhubpwd}'
 }
                    sh 'docker push safouene7/app:api300'
           }
