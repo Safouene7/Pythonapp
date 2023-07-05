@@ -20,7 +20,7 @@ pipeline {
                     usernamePassword(credentialsId: 'dckr_pat_L5L8ySCLxfnCLGcSqy12eZS4J68', usernameVariable: 'safouene7', passwordVariable: 'Sbng-2023')
                 ]) {
                     script {
-                        def dockerhubCredentials = usernamePassword('dckr_pat_L5L8ySCLxfnCLGcSqy12eZS4J68')
+                        def dockerhubCredentials = usernamePassword('dckr_pat_BLXuDXNR_6ncvMyGoIpwVefGni4')
                         def dockerhubUsername = dockerhubCredentials.username
                         def dockerhubPassword = dockerhubCredentials.password
 
