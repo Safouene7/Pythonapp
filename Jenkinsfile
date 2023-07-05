@@ -18,8 +18,8 @@ pipeline {
         stage('Push Docker image') {
             steps {
                 script{
-                   withCredentials([string(credentialsId: 'Sbng-2023', variable: 'Sbng-2023')]) {
-                   sh 'docker login -u safouene7 -p ${dockerhubpwd}'
+                   withCredentials([string(credentialsId: '2b082d82-c595-4ad3-97eb-44fbd3a19485', variable: 'dockerhubpwd')]) {
+                   sh 'docker login -u safouene7 -p ${Sbng-2023}'
 }
                    sh 'docker push safouene7/app:api300'
           }
