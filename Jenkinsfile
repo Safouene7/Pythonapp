@@ -10,7 +10,7 @@ pipeline {
   
         stage('Run API') {
             steps {
-                sh 'apt-get install -y python3'
+                sh 'sudo apt-get install -y python3'
                 sh 'python3 -m pip install -r requirements.txt'
                 sh 'python3 api.py'
             }
