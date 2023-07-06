@@ -27,7 +27,23 @@ pipeline {
           }
         }
      }
-  }
+        stage('Deploy to Nexus') {
+            steps {
+                nexusPublisher(
+                    nexusInstanceId: 'localnexus3', // The ID configured in Jenkins for Nexus
+                    nexusUrl: 'http://localhost:8081/repository/api', // The URL of the Nexus hosted repository
+                    packages: [nexusPackage(
+                        artifacts: [
+                            nexusArtifact(
+                                type: 'hosted'
+                            )
+                        ]
+                    )],
+                    credentialsId: 'd099e904-bd96-47ba-88e5-a167abfc1fd6' 
+            }
+        }
+
+    }
 }
 
 
