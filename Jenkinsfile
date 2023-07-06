@@ -1,7 +1,6 @@
 pipeline {
     agent any
     
-  
     stages {
         stage('Clone repository') {
             steps {
@@ -18,15 +17,16 @@ pipeline {
   
         stage('Push Docker image') {
             steps {
-                script{
-                     withCredentials([usernamePassword(credentialsId: 'd3427c3c-dc64-4d8e-b4aa-59440db6f55e', usernameVariable: 'saf', passwordVariable: '1234')]) {
-                         sh 'docker login -u safouene7 -p Sbng-2023'
-}
-                   sh 'docker tag api300 safouene7/app:latest'
-                   sh 'docker push safouene7/app:latest'
-          }
+                script {
+                    withCredentials([usernamePassword(credentialsId: 'd3427c3c-dc64-4d8e-b4aa-59440db6f55e', usernameVariable: 'saf', passwordVariable: '1234')]) {
+                        sh 'docker login -u safouene7 -p Sbng-2023'
+                    }
+                    sh 'docker tag api300 safouene7/app:latest'
+                    sh 'docker push safouene7/app:latest'
+                }
+            }
         }
-     }
+  
         stage('Deploy to Nexus') {
             steps {
                 nexusPublisher(
@@ -39,11 +39,12 @@ pipeline {
                             )
                         ]
                     )],
-                    credentialsId: 'd099e904-bd96-47ba-88e5-a167abfc1fd6' 
+                    credentialsId: 'd099e904-bd96-47ba-88e5-a167abfc1fd6'
+                )
             }
         }
-
     }
 }
+
 
 
