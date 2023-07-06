@@ -19,7 +19,7 @@ pipeline {
         stage('Push Docker image') {
             steps {
                 script{
-                     withCredentials([usernamePassword(credentialsId: '4a2ef18d-42ef-454d-9531-dda2aff3c9af', usernameVariable: 'saf', passwordVariable: '1234')]) {
+                     withCredentials([usernamePassword(credentialsId: 'd3427c3c-dc64-4d8e-b4aa-59440db6f55e', usernameVariable: 'saf', passwordVariable: '1234')]) {
                          sh 'docker login -u safouene7 -p Sbng-2023'
 }
                    sh 'docker tag api300 safouene7/app:latest'
