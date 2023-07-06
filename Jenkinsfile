@@ -39,10 +39,11 @@ pipeline {
                             )
                         ]
                     )],
+                    credentialsId: 'd099e904-bd96-47ba-88e5-a167abfc1fd6'
+                )
             }
         }
     }
 }
-
 
 
